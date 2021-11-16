@@ -1,4 +1,4 @@
-"""api_hakaton URL Configuration
+"""api URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -14,8 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from .yasg import urlpatterns_yasg
+from logistic.views import *
+from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('auth', include('rest_framework.urls')),
+    path('api/v1/auth/', include('djoser.urls')),
+    path('api/v1/auth_token/', include('djoser.urls.authtoken')),
+    path('api/', include('logistic.urls')),
+    url('', include('social_django.urls', namespace='social')),
+    path('oauth/', oauth),
+] + urlpatterns_yasg
