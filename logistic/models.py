@@ -9,3 +9,7 @@ class Logistic(models.Model):
     where_from= models.CharField(max_length=200, blank=True)
     where_to = models.CharField(max_length=200, blank=True)
     field_name_sum = models.IntegerField(f'{volume} + 2 ') 
+    
+
+class HitCount(models.Model):
+    visits = models.IntegerField(default=0)
