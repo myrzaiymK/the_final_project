@@ -141,19 +141,19 @@ REST_FRAMEWORK = {
 }
 
 
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:8080",
-#     "http://127.0.0.1:9000",
-# ]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8080",
+    "http://127.0.0.1:9000",
+]
 
-# CORS_ALLOW_METHODS = [
-#     "DELETE",
-#     "GET",
-#     "OPTIONS",
-#     "PATCH",
-#     "POST",
-#     "PUT",
-# ]
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
 
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.github.GithubOAuth2',
@@ -161,5 +161,5 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SOCIAL_AUTH_JSONFIELD_ENABLED = True
-SOCIAL_AUTH_GITHUB_KEY = 'f141659e447c74caf5f3'
-SOCIAL_AUTH_GITHUB_SECRET = '0bf8cb2e8fdf6e5dbad415a3c73c2a43bc3edda8'
+SOCIAL_AUTH_GITHUB_KEY = '3681621228303f82dec1'
+SOCIAL_AUTH_GITHUB_SECRET = '10a92dc41ca0271ff7e03731d941bb7a6a13c420'
