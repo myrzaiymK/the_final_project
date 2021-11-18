@@ -7,11 +7,22 @@ from .permissions import *
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
 from django.shortcuts import render
-from .models.db import F
+# from .models.db import F
 
 def oauth(request):
     return render(request, 'oauth.html')
 
+class prosmotr(models.Model):
+    model = Logistic
+    template_name = ''
+    context_object_name = 'logistic'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context['name'] = 'Logistic'
+        context.update({
+            'product':Logistic.objects.all(),
+            'Views':Logistic.objects.filter(pk=Logistic.pk).update(views=F('views') + 1)
+    })
 
 class HitCountViewSet(viewsets.ModelViewSet):
     queryset = HitCount.objects.all()
@@ -38,4 +49,7 @@ class LogisticDetailView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsOwnerOrReadOnly, IsAuthenticated)
     # authentication_classes = (TokenAuthentication, SessionAuthentication)
 
-
+class prosmotrDetailVies(generics.ListAPIView):
+    serializer_class = LogisticAllSerializers
+    queryset = Logistic.objects.all()
+    permission_classes = (IsAuthenticated,)
