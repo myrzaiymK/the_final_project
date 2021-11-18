@@ -26,5 +26,4 @@ urlpatterns = [
     path('api/v1/auth_token/', include('djoser.urls.authtoken')),
     path('api/', include('logistic.urls')),
     url('', include('social_django.urls', namespace='social')),
-    path('oauth/', oauth),
 ] + urlpatterns_yasg
