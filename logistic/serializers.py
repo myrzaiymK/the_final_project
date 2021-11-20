@@ -7,7 +7,8 @@ class LogisticAllSerializers(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class HitCountSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = HitCount
-        fields = ('visits',)
+# class HitCountSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = HitCount
+#         fields = ('visits',)
+

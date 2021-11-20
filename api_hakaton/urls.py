@@ -21,7 +21,7 @@ from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('auth', include('rest_framework.urls')),
+    path('auth/', include('rest_framework.urls')),
     path('api/v1/auth/', include('djoser.urls')),
     path('api/v1/auth_token/', include('djoser.urls.authtoken')),
     path('api/', include('logistic.urls')),

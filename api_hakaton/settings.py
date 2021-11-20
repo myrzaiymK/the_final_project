@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ei!8mrb*u%__gb^anb0gpblh9*pjjn2np!()*_e*-4-2v==o@h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*',]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -133,17 +133,25 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+# REST_FRAMEWORK = {
+#     'DEFAULT_RENDERER_CLASSES': [
+#         'rest_framework.renderers.JSONRenderer',
+#         'rest_framework.renderers.BrowsableAPIRenderer',
+#     ],
+# }
+
 REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': [
-        'rest_framework.renderers.JSONRenderer',
-        'rest_framework.renderers.BrowsableAPIRenderer',
-    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  # <-- And here
+    ]
 }
 
 
 CORS_ALLOWED_ORIGINS = [
-    "http://192.168.0.112:8000",
-    "http://192.168.0.112:8000",
+    # "http://192.168.0.112:8000",
+    "http://192.168.1.108:3000",
+    "http://192.168.1.108:5000",
+    "http://localhost:3000"
 ]
 
 CORS_ALLOW_METHODS = [
@@ -153,6 +161,17 @@ CORS_ALLOW_METHODS = [
     "PATCH",
     "POST",
     "PUT",
+]
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
 ]
 
 AUTHENTICATION_BACKENDS = (
